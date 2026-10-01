@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Env
+.env
+
+# DB / runtime
+*.db
+*.sqlite3
+angel.db
+
+# Vault / generated
+vault/
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

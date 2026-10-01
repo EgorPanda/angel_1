@@ -1,0 +1,37 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: angel
+      POSTGRES_PASSWORD: angel
+      POSTGRES_DB: angel
+    volumes:
+      - angel_pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U angel -d angel"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  backend:
+    build: ./backend
+    environment:
+      ANGEL_DATABASE_URL: postgresql+psycopg://angel:angel@db:5432/angel
+      ANGEL_TELEGRAM_BOT_TOKEN: ${ANGEL_TELEGRAM_BOT_TOKEN:-}
+      ANGEL_LLM_PROVIDER: ${ANGEL_LLM_PROVIDER:-local}
+      ANGEL_LLM_MODEL: ${ANGEL_LLM_MODEL:-qwen2.5:7b}
+      ANGEL_LLM_API_URL: ${ANGEL_LLM_API_URL:-http://host.docker.internal:11434/v1}
+      ANGEL_MARKDOWN_VAULT_PATH: /vault
+    volumes:
+      - ./vault:/vault
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000
+
+volumes:
+  angel_pgdata:

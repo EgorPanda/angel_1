@@ -1,0 +1,11 @@
+{
+  "types": {
+    "aliases": "aliases",
+    "cssclasses": "multitext",
+    "tags": "tags",
+    "начал читать": "date",
+    "прочитал": "date",
+    "начал проходить": "date",
+    "прошел курс": "date"
+  }
+}

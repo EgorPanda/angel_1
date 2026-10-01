@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Angel AI</title>
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<aside class="sidebar">
+  <div class="brand">Angel AI</div>
+  <nav>
+    <button data-view="dashboard">Обзор</button>
+    <button data-view="notes">Заметки</button>
+    <button data-view="reminders">Напоминания</button>
+    <button data-view="ai">AI-чат</button>
+    <button data-view="activity">Журнал</button>
+    <button data-view="stats">Статистика</button>
+    <button data-view="settings">Настройки</button>
+    <button data-view="system">Система</button>
+  </nav>
+</aside>
+<main>
+  <section id="view-dashboard" class="view"></section>
+  <section id="view-notes" class="view"></section>
+  <section id="view-reminders" class="view"></section>
+  <section id="view-ai" class="view"></section>
+  <section id="view-activity" class="view"></section>
+  <section id="view-stats" class="view"></section>
+  <section id="view-settings" class="view"></section>
+  <section id="view-system" class="view"></section>
+</main>
+<div id="toast" class="toast hidden"></div>
+<script src="/app.js"></script>
+</body>
+</html>

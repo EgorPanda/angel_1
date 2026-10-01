@@ -1,0 +1,6 @@
+REMINDER_CREATED = "reminders.reminder_created"
+REMINDER_UPDATED = "reminders.reminder_updated"
+REMINDER_DELETED = "reminders.reminder_deleted"
+REMINDER_CANCELLED = "reminders.reminder_cancelled"
+REMINDER_TRIGGERED = "reminders.reminder_triggered"
+REMINDER_RUN_CREATED = "reminders.reminder_run_created"
